@@ -14,16 +14,19 @@
   <tbody>
     @foreach($blogs as $item)
         <tr>
-        <td>{{$item->id}}</td>
-        <td>{{$item->title}}</td>
-        <td>{{$item->description}}</td>
-        <td>{{$item->author}}</td>
-        <td><a href="/blog/{{$item->id}}">View</a></td>
-        <td><a href="/blog/{{$item->id}}/edit">Edit</a></td>
-        <td><a href="/blog/{{$item->id}}/delete">Delete</a></td>
+          <td>{{$item->id}}</td>
+          <td>{{$item->title}}</td>
+          <td>{{$item->description}}</td>
+          <td>{{$item->author}}</td>
+          <td><a href="/blog/{{$item->id}}">View</a></td>
+          <td><a href="/blog/{{$item->id}}/edit">Edit</a></td>
+          <td><a href="/blog/{{$item->id}}/delete">Delete</a></td>
         </tr>
     @endforeach
 
 </tbody>
 </table>
+@if(session('success'))
+    <p style="color:green">{{ session('success') }}</p>
+@endif
 <button><a href="/blog/create">Create a new blog</a></button>
